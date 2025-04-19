@@ -1,0 +1,29 @@
+.container
+  %h2.page-title
+    = pageTitle
+  %ul.errorMessages
+    - task.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: task, url: url, local: true) do |f|
+    .field
+      = f.label :deadline
+    %div
+      = f.date_field :deadline, class: 'deadline'
+    .field
+      = f.label :eyecatch
+    %div
+      = f.file_field :eyecatch, class: 'file'
+    - if task.eyecatch.attached?
+      .file_message
+        現在のアイキャッチ画像は変更されません。
+        %br>/
+        変更する場合は新しいファイルを選択してください。
+    .field
+      = f.label :name
+    %div
+      = f.text_field :name, class: 'text'
+    .field
+      = f.label :description
+    %div
+      = f.text_area :description
+    = f.submit 'Submit', class: 'btn-primary'

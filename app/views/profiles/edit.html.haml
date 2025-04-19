@@ -1,0 +1,31 @@
+.container
+  %h2.page-title
+    Edit Profile
+  %ul.errorMessages
+    - @profile.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+    .field
+      = f.label :avatar
+    %div
+      = f.file_field :avatar, class: 'file'
+    .field
+      = f.label :nickname
+    %div
+      = f.text_field :nickname, class: 'text'
+    .field
+      = f.label :introduction
+    %div
+      = f.text_area :introduction
+    .field
+      = f.label :gender
+    %div
+      = f.select :gender, Profile.genders.map{ |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, {}, {class: 'text'}
+    .field
+      = f.label :birthday
+    %div
+      = f.date_field :birthday, class: 'text'
+    .check
+      = f.check_box :subscribed
+      = f.label :subscribed, class: 'check-font'
+    = f.submit 'Submit', class: 'btn-primary'

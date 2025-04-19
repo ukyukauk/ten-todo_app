@@ -1,0 +1,8 @@
+.container
+  %h2.page-title= @board.name
+  .tasks
+    - @tasks.each do |task|
+      = render 'task', task: task
+    = link_to new_board_task_path(@board) do
+      .add-new-task
+        %p.add-new-task_text + Add new card
