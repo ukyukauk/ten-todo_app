@@ -1,0 +1,71 @@
+@import './variables';
+
+.page-title {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.boards {
+  margin-top: 9px;
+}
+
+.board {
+  margin-top: 26px;
+  background-color: $contents-bg-color;
+  border-radius: 10px;
+  padding: 32px 17px 20px 16px;
+  max-width: 100%;
+}
+
+.board_flex-items {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.board_content {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.board_name {
+  font-size: 18px;
+  font-weight: 400;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.board_description {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.4;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.board_editor {
+  margin-top: 29px;
+}
+
+.board_editor-icon {
+  width: 30px;
+}
+
+.add-new-board {
+  margin-top: 26px;;
+  width: 100%;
+  padding: 68px;
+  border-radius: 10px;
+  border: 1px dashed rgba(0, 0, 0, 0.20);
+}
+
+.add-new-board_text {
+  font-size: 18px;
+  text-align: center;
+}

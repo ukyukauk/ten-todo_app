@@ -1,0 +1,81 @@
+@import "./variables";
+
+input,
+select {
+  &.text {
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 10px;
+    background: $contents-bg-color;
+    font-family: $font-family;
+  }
+}
+
+.field {
+  margin-top: 33px;
+}
+
+.file {
+  width: 100%;
+  margin-top: 8px;
+  font-family: $font-family;
+}
+
+.file_message {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.deadline {
+  margin-top: 8px;
+  font-family: $font-family;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+textarea {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 8px 8px;
+  height: 203px;
+  resize: vertical;
+  border: none;
+  border-radius: 10px;
+  background: $contents-bg-color;
+  font-family: $font-family;
+}
+
+.errorMessages {
+  margin-top: 10px;
+}
+
+.check {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.check-font {
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: $btn-color;
+  border: none;
+  width: calc(100% - 26px * 2);  // containerのpadding * 2を引く
+  text-align: center;
+  color: white;
+  padding: 8px 0;
+  font-weight: bold;
+  border-radius: 4px;
+  font-family: $font-family;
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
