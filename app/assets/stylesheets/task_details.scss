@@ -1,0 +1,76 @@
+@import './variables';
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-details_image {
+  margin-top: 32px;
+  border-radius: 8px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.task-details_description {
+  margin-top: 35px;
+  padding: 20px 16px 26px 15px;
+  background-color: $contents-bg-color;
+  font-size: 14px;
+  border-radius: 10px;
+  font-weight: 400;
+}
+
+.comment_container {
+  margin-top: 35px;
+}
+
+.comment_header {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.comment {
+  margin-top: 25px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.comment_icon-image {
+  width: 40px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.comment_content {
+  font-size: 14px;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.add-new-comment {
+  margin-top: 32px;;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px dashed rgba(0, 0, 0, 0.20);
+}
+
+.add-new-comment_text {
+  font-size: 14px;
+  text-align: center;
+}

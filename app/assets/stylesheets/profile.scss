@@ -1,0 +1,42 @@
+@import "./variables";
+
+.profilePage_user {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.profilePage_user_image {
+
+  img {
+    width: 60px;
+  }
+}
+
+.profilePage_user_name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profilePage_user_displayName {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.profilePage_user_actionButton {
+  border: 2px solid $btn-color;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: $font-family;
+  font-weight: bold;
+
+  a {
+    color: $btn-color;
+  }
+}
+
+.profilePage_user_introduction {
+  margin-top: 10px;
+}

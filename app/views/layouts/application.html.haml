@@ -1,0 +1,50 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= content_for(:title) || "Todoapp"
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = yield :head
+    %link{:href => "/manifest.json", :rel => "manifest"}/
+    %link{:href => "/icon.png", :rel => "icon", :type => "image/png"}/
+    %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
+    %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    / あとで確認する
+    / = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
+
+    / Font Awesome
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css", :rel => "stylesheet"}/
+    / Google Fonts
+    %link{:href => "https://fonts.googleapis.com", :rel => "preconnect"}/
+    %link{:crossorigin => "", :href => "https://fonts.gstatic.com", :rel => "preconnect"}/
+    %link{:href => "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap", :rel => "stylesheet"}/
+
+  %body
+    %header.header
+      .header_title
+        - if !current_page?(root_path)
+          = link_to :back do
+            %i.fa-solid.fa-chevron-left.header_back
+        = link_to 'Boards', root_path
+      - if user_signed_in?
+        .header_actions
+          .dropdown
+            = image_tag current_user.avatar_image, class: "header_avatar"
+            .dropdown-content
+              = image_tag 'card1.png', class: "dropdown-content-bg"
+              .dropdown-content-link-menu
+                .dropdown-content-link
+                  = link_to 'Profile', profile_path
+                .dropdown-content-link
+                  = link_to 'Logout', destroy_user_session_path, data: { method: 'delete' }
+      - else
+        = link_to 'Login', new_user_session_path, class: 'header_loginBtn'
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{:class => key}= value
+    = yield
