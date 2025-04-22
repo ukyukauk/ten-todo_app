@@ -1,0 +1,33 @@
+.container
+  / タスク詳細
+  .task-details
+    .page-header
+      %h2.page-title= @task.name
+      - if user_signed_in? && current_user.has_written_task?(@task)
+        .detail_actions
+          .dropdown
+            = image_tag 'combined-shape', class: "dropdown-button"
+            .dropdown-content
+              = image_tag 'card1.png', class: "dropdown-content-bg"
+              .dropdown-content-link-menu
+                = link_to 'Edit', edit_board_task_path(@task.board, @task), class: "dropdown-content-link"
+                = link_to 'Delete', board_task_path(@task.board, @task), data: { turbo_method: 'delete', turbo_confirm: '削除してもよろしいですか？' }, class: "dropdown-content-link"
+    - if @task.eyecatch.attached?
+      .task-details_image
+        = image_tag @task.eyecatch
+    .task-details_description
+      = @task.description
+  / コメント一覧
+  .comment_container
+    %h3.comment_header Comment
+    .comments
+      - @comments.each do |comment|
+        .comment
+          .comment_icon
+            = image_tag comment.user.avatar_image, class: "comment_icon-image"
+          .comment_content
+            = comment.content
+  / コメント追加ボタン
+  = link_to new_board_task_comment_path(@task.board, @task) do
+    .add-new-comment
+      %p.add-new-comment_text + Add new comment

@@ -1,0 +1,16 @@
+.container
+  %h2.page-title
+    = pageTitle
+  %ul.errorMessages
+    - board.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: board, local: true) do |f|
+    .field
+      = f.label :name
+    %div
+      = f.text_field :name, class: 'text'
+    .field
+      = f.label :description
+    %div
+      = f.text_area :description
+    = f.submit 'Submit', class: 'btn-primary'

@@ -1,0 +1,21 @@
+.task
+  .task_content
+    = link_to board_task_path(task.board, task) do
+      - if task.eyecatch.attached?
+        .task_image
+          = image_tag task.eyecatch
+      .task_name
+        = task.name
+      .task_description
+        = task.description
+      .task_bottom
+        .task_editor
+          = image_tag task.user.avatar_image, class: "task_editor-icon"
+        .task_comment
+          .task_comment-count
+            = task.comments.count
+          .task_comment-icon
+            = image_tag 'message-square-outline.png', class: "task_comment-icon-img"
+      - if task.deadline?
+        .task_deadline
+          Deadline：#{l task.deadline}

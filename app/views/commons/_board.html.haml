@@ -1,0 +1,19 @@
+.board
+  .board_flex-items
+    .board_content
+      = link_to board_path(board) do
+        .board_name
+          = board.name
+        .board_description
+          = board.description
+        .board_editor
+          = image_tag board.user.avatar_image, class: "board_editor-icon"
+    - if user_signed_in? && current_user.has_written_board?(board)
+      .detail_actions
+        .dropdown
+          = image_tag 'combined-shape', class: "dropdown-button"
+          .dropdown-content
+            = image_tag 'card1.png', class: "dropdown-content-bg"
+            .dropdown-content-link-menu
+              = link_to 'Edit', edit_board_path(board), class: "dropdown-content-link"
+              = link_to 'Delete', board_path(board), data: { turbo_method: 'delete', turbo_confirm: '削除してもよろしいですか？' }, class: "dropdown-content-link"
