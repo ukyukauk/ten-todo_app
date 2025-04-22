@@ -17,6 +17,6 @@
 class Comment < ApplicationRecord
   validates :content, presence: true
 
-  belongs_to :task, dependent: :destroy
-  belongs_to :user, dependent: :destroy
+  belongs_to :task
+  belongs_to :user
 end
