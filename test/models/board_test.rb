@@ -13,7 +13,7 @@
 #
 #  index_boards_on_user_id  (user_id)
 #
-require "test_helper"
+require 'test_helper'
 
 class BoardTest < ActiveSupport::TestCase
   # test "the truth" do

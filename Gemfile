@@ -5,7 +5,8 @@ gem 'rails', '~> 7.2.2', '>= 7.2.2.1'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
+# gem 'pg', '~> 1.1'
+gem 'pg', '>= 0.18', '< 2.0'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
@@ -40,8 +41,9 @@ gem 'binding_of_caller'
 gem 'devise'
 gem 'faker'
 gem 'hamlit'
-gem 'sassc-rails'
 gem 'importmap-rails'
+gem 'sassc-rails'
+gem 'aws-sdk-s3', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -53,6 +55,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false
 
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'rubocop-rails'
 end
