@@ -1,8 +1,14 @@
 {
   "name": "app",
   "private": true,
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --outdir=app/assets/builds"
+  },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.13"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.2"
   }
 }
